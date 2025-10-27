@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Row, Col, Typography, Form, Input, Button, Card, Space, message } from 'antd';
-import { 
-  PhoneOutlined, 
-  MailOutlined, 
+import {
+  PhoneOutlined,
+  MailOutlined,
   EnvironmentOutlined,
   SendOutlined,
   LoadingOutlined,
@@ -47,7 +47,7 @@ const Contacto = () => {
 
   const onFinish = async (values) => {
     setIsLoading(true);
-    
+
     try {
       // Validate honeypot field
       if (values.company) {
@@ -65,19 +65,25 @@ const Contacto = () => {
         telefono: values.phone || ''
       };
 
-      await emailjs.send(
+      /* await emailjs.send(
         'service_twe6qza',
         'template_twa5df1',
         templateParams,
         '0riHKRM-FTfIgT6XY'
+      ); */
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       message.success('¡Mensaje enviado correctamente! Te contactaremos pronto.');
       form.resetFields();
-      
+
     } catch (error) {
       console.error('Error al enviar el mensaje:', error);
-      message.error('Error al enviar el mensaje. Por favor, intenta nuevamente.');
+      message.error('Hubo un problema al enviar el mensaje. Por favor, intentá nuevamente.');
     } finally {
       setIsLoading(false);
     }
@@ -125,10 +131,10 @@ const Contacto = () => {
           })
         }}
       />
-      
-      <section 
+
+      <section
         id="contacto"
-        style={{ 
+        style={{
           padding: '100px 0',
           background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%)',
           position: 'relative',
@@ -168,18 +174,18 @@ const Contacto = () => {
           zIndex: 0
         }} />
 
-        <div style={{ 
-          maxWidth: 1200, 
-          margin: '0 auto', 
+        <div style={{
+          maxWidth: 1200,
+          margin: '0 auto',
           padding: '0 24px',
           position: 'relative',
           zIndex: 1
         }}>
           {/* Header */}
           <div style={{ textAlign: 'center', marginBottom: 80 }}>
-            <Title 
-              level={1} 
-              style={{ 
+            <Title
+              level={1}
+              style={{
                 color: '#0B3C5D',
                 marginBottom: 32,
                 fontSize: '4rem',
@@ -204,9 +210,9 @@ const Contacto = () => {
                 borderRadius: '3px'
               }} />
             </Title>
-            
-            <Text 
-              style={{ 
+
+            <Text
+              style={{
                 fontSize: '1.375rem',
                 color: '#4B5563',
                 maxWidth: 600,
@@ -216,7 +222,7 @@ const Contacto = () => {
                 lineHeight: 1.7
               }}
             >
-              ¿Tienes alguna pregunta? Estamos aquí para ayudarte. 
+              ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
             </Text>
           </div>
 
@@ -245,7 +251,7 @@ const Contacto = () => {
                   borderRadius: '50%',
                   zIndex: 0
                 }} />
-                
+
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <div style={{
                     display: 'inline-flex',
@@ -261,9 +267,9 @@ const Contacto = () => {
                     <MessageOutlined style={{ fontSize: 28, color: 'white' }} />
                   </div>
 
-                  <Title 
-                    level={2} 
-                    style={{ 
+                  <Title
+                    level={2}
+                    style={{
                       color: '#274181',
                       marginBottom: 32,
                       fontSize: '2.2rem',
@@ -273,12 +279,12 @@ const Contacto = () => {
                   >
                     Información de Contacto
                   </Title>
-                  
+
                   <Space direction="vertical" size="large" style={{ width: '100%', boxSizing: 'border-box' }}>
                     {contactInfo.map((info, index) => (
-                      <div key={index} style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
+                      <div key={index} style={{
+                        display: 'flex',
+                        alignItems: 'center',
                         gap: 20,
                         padding: '20px',
                         background: 'rgba(255, 255, 255, 0.8)',
@@ -290,18 +296,18 @@ const Contacto = () => {
                         width: '100%',
                         boxSizing: 'border-box'
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-4px)';
-                        e.currentTarget.style.boxShadow = '0 8px 25px rgba(39, 65, 129, 0.15)';
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = 'none';
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
-                      }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-4px)';
+                          e.currentTarget.style.boxShadow = '0 8px 25px rgba(39, 65, 129, 0.15)';
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
+                        }}
                       >
-                        <div style={{ 
+                        <div style={{
                           background: `${info.gradient}`,
                           padding: '16px',
                           borderRadius: '16px',
@@ -311,10 +317,10 @@ const Contacto = () => {
                           {info.icon}
                         </div>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <Text 
-                            style={{ 
-                              color: '#4B5563', 
-                              fontSize: 14, 
+                          <Text
+                            style={{
+                              color: '#4B5563',
+                              fontSize: 14,
                               fontWeight: 600,
                               display: 'block',
                               marginBottom: 6,
@@ -325,9 +331,9 @@ const Contacto = () => {
                             {info.title}
                           </Text>
                           {info.href ? (
-                            <a 
+                            <a
                               href={info.href}
-                              style={{ 
+                              style={{
                                 color: '#274181',
                                 fontSize: 16,
                                 fontWeight: 500,
@@ -343,8 +349,8 @@ const Contacto = () => {
                               {info.content}
                             </a>
                           ) : (
-                            <Text style={{ 
-                              color: '#274181', 
+                            <Text style={{
+                              color: '#274181',
                               fontSize: 16,
                               fontWeight: 500,
                               wordBreak: 'break-word',
@@ -407,7 +413,7 @@ const Contacto = () => {
                   borderRadius: '50%',
                   zIndex: 0
                 }} />
-                
+
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <div style={{
                     display: 'inline-flex',
@@ -423,9 +429,9 @@ const Contacto = () => {
                     <UserOutlined style={{ fontSize: 28, color: 'white' }} />
                   </div>
 
-                  <Title 
-                    level={2} 
-                    style={{ 
+                  <Title
+                    level={2}
+                    style={{
                       color: '#274181',
                       marginBottom: 32,
                       fontSize: '2.2rem',
@@ -435,7 +441,7 @@ const Contacto = () => {
                   >
                     Envíanos un Mensaje
                   </Title>
-                  
+
                   <Form
                     form={form}
                     layout="vertical"
