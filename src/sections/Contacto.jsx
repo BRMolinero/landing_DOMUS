@@ -12,6 +12,7 @@ import {
   PhoneFilled,
   EnvironmentFilled
 } from '@ant-design/icons';
+import emailjs from '@emailjs/browser';
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -48,41 +49,35 @@ const Contacto = () => {
     setIsLoading(true);
     
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000);
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          subject: values.subject || 'Consulta desde el sitio web',
-          message: values.message,
-          phone: values.phone || null,
-          company: '' // Honeypot field
-        }),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Error al enviar el mensaje');
+      // Validate honeypot field
+      if (values.company) {
+        // Spam detected - silently fail
+        message.success('¡Mensaje enviado correctamente! Te contactaremos pronto.');
+        form.resetFields();
+        return;
       }
+
+      const templateParams = {
+        nombre: values.name,
+        email: values.email,
+        asunto: values.subject || 'Consulta desde el sitio web',
+        mensaje: values.message,
+        telefono: values.phone || ''
+      };
+
+      await emailjs.send(
+        'service_twe6qza',
+        'template_twa5df1',
+        templateParams,
+        '0riHKRM-FTfIgT6XY'
+      );
 
       message.success('¡Mensaje enviado correctamente! Te contactaremos pronto.');
       form.resetFields();
       
     } catch (error) {
-      if (error.name === 'AbortError') {
-        message.error('Tiempo de espera agotado. Por favor, intenta nuevamente.');
-      } else {
-        message.error(error.message || 'Error al enviar el mensaje. Por favor, intenta nuevamente.');
-      }
+      console.error('Error al enviar el mensaje:', error);
+      message.error('Error al enviar el mensaje. Por favor, intenta nuevamente.');
     } finally {
       setIsLoading(false);
     }
@@ -228,7 +223,7 @@ const Contacto = () => {
           {/* Main Content */}
           <Row gutter={[40, 40]}>
             {/* Información de contacto */}
-            <Col xs={24} md={8}>
+            <Col xs={24} md={9}>
               <div style={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
                 borderRadius: '24px',
@@ -271,7 +266,7 @@ const Contacto = () => {
                     style={{ 
                       color: '#274181',
                       marginBottom: 32,
-                      fontSize: '2.5rem',
+                      fontSize: '2.2rem',
                       fontWeight: 800,
                       lineHeight: 1.1
                     }}
@@ -279,7 +274,7 @@ const Contacto = () => {
                     Información de Contacto
                   </Title>
                   
-                  <Space direction="vertical" size="large" style={{ width: '100%' }}>
+                  <Space direction="vertical" size="large" style={{ width: '100%', boxSizing: 'border-box' }}>
                     {contactInfo.map((info, index) => (
                       <div key={index} style={{ 
                         display: 'flex', 
@@ -291,7 +286,9 @@ const Contacto = () => {
                         border: '1px solid rgba(149, 205, 209, 0.2)',
                         backdropFilter: 'blur(10px)',
                         transition: 'all 0.3s ease',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        width: '100%',
+                        boxSizing: 'border-box'
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-4px)';
@@ -308,11 +305,12 @@ const Contacto = () => {
                           background: `${info.gradient}`,
                           padding: '16px',
                           borderRadius: '16px',
-                          boxShadow: '0 4px 12px rgba(39, 65, 129, 0.2)'
+                          boxShadow: '0 4px 12px rgba(39, 65, 129, 0.2)',
+                          flexShrink: 0
                         }}>
                           {info.icon}
                         </div>
-                        <div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
                           <Text 
                             style={{ 
                               color: '#4B5563', 
@@ -334,7 +332,10 @@ const Contacto = () => {
                                 fontSize: 16,
                                 fontWeight: 500,
                                 textDecoration: 'none',
-                                transition: 'color 0.3s ease'
+                                transition: 'color 0.3s ease',
+                                wordBreak: 'break-word',
+                                overflowWrap: 'break-word',
+                                display: 'block'
                               }}
                               onMouseEnter={(e) => e.target.style.color = '#95CDD1'}
                               onMouseLeave={(e) => e.target.style.color = '#274181'}
@@ -345,7 +346,10 @@ const Contacto = () => {
                             <Text style={{ 
                               color: '#274181', 
                               fontSize: 16,
-                              fontWeight: 500
+                              fontWeight: 500,
+                              wordBreak: 'break-word',
+                              overflowWrap: 'break-word',
+                              display: 'block'
                             }}>
                               {info.content}
                             </Text>
@@ -382,7 +386,7 @@ const Contacto = () => {
             </Col>
 
             {/* Formulario */}
-            <Col xs={24} md={15}>
+            <Col xs={24} md={14}>
               <div style={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
                 borderRadius: '24px',
@@ -424,7 +428,7 @@ const Contacto = () => {
                     style={{ 
                       color: '#274181',
                       marginBottom: 32,
-                      fontSize: '2.5rem',
+                      fontSize: '2.2rem',
                       fontWeight: 800,
                       lineHeight: 1.1
                     }}
