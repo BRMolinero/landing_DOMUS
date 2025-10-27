@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+
+# Carpeta domus en la raíz del repo
+/domus/
+
+# (Opcionales pero recomendados)
+dist/
+build/
+.out/
+.next/
+.cache/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
