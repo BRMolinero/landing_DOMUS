@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Menu, Button, Typography, Space, Drawer } from 'antd';
-import { 
-  MenuOutlined, 
+import {
+  MenuOutlined,
   HomeOutlined,
   TeamOutlined,
   AppstoreOutlined,
@@ -26,7 +26,7 @@ const AppLayout = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -63,11 +63,11 @@ const AppLayout = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Header 
-        style={{ 
-          position: 'fixed', 
-          top: 0, 
-          zIndex: 1000, 
+      <Header
+        style={{
+          position: 'fixed',
+          top: 0,
+          zIndex: 1000,
           width: '100%',
           background: 'rgba(255, 255, 255, 0.95)',
           backdropFilter: 'blur(20px)',
@@ -75,9 +75,9 @@ const AppLayout = () => {
           transition: 'all 0.3s ease'
         }}
       >
-        <div style={{ 
-          maxWidth: 1200, 
-          margin: '0 auto', 
+        <div style={{
+          maxWidth: 1200,
+          margin: '0 auto',
           padding: '0 16px',
           display: 'flex',
           alignItems: 'center',
@@ -86,10 +86,10 @@ const AppLayout = () => {
           position: 'relative'
         }}>
           {/* Logo */}
-          <div 
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
               cursor: 'pointer',
               padding: '8px 8px',
               borderRadius: '12px',
@@ -106,20 +106,20 @@ const AppLayout = () => {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <img 
-              src="/logo sin fondo (1).png" 
-              alt="Humanix-tech Logo" 
-              style={{ 
-                height: 60, 
-                marginRight: 16, 
+            <img
+              src="/logo sin fondo (1).png"
+              alt="Humanix-tech Logo"
+              style={{
+                height: 60,
+                marginRight: 16,
                 borderRadius: '50%',
                 transition: 'all 0.3s ease'
               }}
             />
-            <Title 
-              level={4} 
-              style={{ 
-                margin: 0, 
+            <Title
+              level={4}
+              style={{
+                margin: 0,
                 fontWeight: 500,
                 fontSize: '1.25rem',
                 background: 'linear-gradient(90deg, #0B3C5D 0%, #00C2C7 100%)',
@@ -146,15 +146,15 @@ const AppLayout = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
             gap: 16
           }} className="desktop-menu-container">
             <Menu
               mode="horizontal"
               items={menuItems}
-              style={{ 
+              style={{
                 backgroundColor: 'transparent',
                 border: 'none',
                 flex: 1,
@@ -164,11 +164,13 @@ const AppLayout = () => {
               }}
               theme='light'
             />
-            
+
             <Button
               type="primary"
-              onClick={() => navigate('/login')}
-              style={{ 
+              /* onClick={() => navigate('/login')} */
+              onClick={() => window.location.href = 'https://domus-frontend.onrender.com/login'}
+
+              style={{
                 minWidth: 120,
                 height: 40,
                 borderRadius: '12px',
@@ -195,7 +197,7 @@ const AppLayout = () => {
             type="text"
             icon={<MenuOutlined />}
             onClick={() => setMobileMenuOpen(true)}
-            style={{ 
+            style={{
               display: 'none',
               color: '#0B3C5D',
               fontSize: 20,
@@ -219,21 +221,21 @@ const AppLayout = () => {
       {/* Mobile Drawer */}
       <Drawer
         title={
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
             gap: 12,
             padding: '8px 0'
           }}>
-            <img 
-              src="/logo sin fondo (1).png" 
-              alt="Humanix-tech Logo" 
-              style={{ 
-                height: 40, 
+            <img
+              src="/logo sin fondo (1).png"
+              alt="Humanix-tech Logo"
+              style={{
+                height: 40,
                 borderRadius: '50%'
               }}
             />
-            <span style={{ 
+            <span style={{
               fontSize: '16px',
               fontWeight: 500,
               background: 'linear-gradient(90deg, #0B3C5D 0%, #00C2C7 100%)',
@@ -260,7 +262,7 @@ const AppLayout = () => {
         <Menu
           mode="vertical"
           items={menuItems}
-          style={{ 
+          style={{
             border: 'none',
             background: 'transparent',
             fontSize: '16px',
@@ -268,15 +270,17 @@ const AppLayout = () => {
           }}
           theme='light'
         />
-        <div style={{ 
-          marginTop: 32, 
+        <div style={{
+          marginTop: 32,
           textAlign: 'center',
           padding: '0 24px'
         }}>
           <Button
             type="primary"
-            onClick={() => navigate('/login')}
-            style={{ 
+            /* onClick={() => navigate('/login')} */
+            onClick={() => window.location.href = 'https://domus-frontend.onrender.com/login'}
+
+            style={{
               width: '100%',
               height: 48,
               borderRadius: '12px',
@@ -300,7 +304,7 @@ const AppLayout = () => {
       </Content>
 
       <WhatsAppButton />
-      
+
       {/* Custom CSS for enhanced navbar styles */}
       <style jsx>{`
         .ant-menu-horizontal {
