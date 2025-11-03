@@ -598,16 +598,19 @@ const WhoWeAre = () => {
         {/* Values Summary */}
         <Row style={{ marginTop: 80 }}>
           <Col xs={24}>
-            <div style={{
-              background: 'linear-gradient(135deg, #0B3C5D 0%, #274181 50%, #95CDD1 100%)',
-              borderRadius: 24,
-              padding: 64,
-              textAlign: 'center',
-              color: 'white',
-              position: 'relative',
-              overflow: 'hidden',
-              boxShadow: '0 16px 48px rgba(11, 60, 93, 0.3)'
-            }}>
+            <div 
+              className="values-summary-card"
+              style={{
+                background: 'linear-gradient(135deg, #0B3C5D 0%, #274181 50%, #95CDD1 100%)',
+                borderRadius: 24,
+                padding: 64,
+                textAlign: 'center',
+                color: 'white',
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 16px 48px rgba(11, 60, 93, 0.3)'
+              }}
+            >
               {/* Decoraciones de fondo */}
               <div style={{
                 position: 'absolute',
@@ -629,13 +632,17 @@ const WhoWeAre = () => {
               }} />
               
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <Title level={2} style={{ 
-                  color: 'white', 
-                  marginBottom: 24,
-                  fontSize: '2.5rem',
-                  fontWeight: 800,
-                  lineHeight: 1.1
-                }}>
+                <Title 
+                  level={2} 
+                  className="values-title"
+                  style={{ 
+                    color: 'white', 
+                    marginBottom: 24,
+                    fontSize: '2.5rem',
+                    fontWeight: 800,
+                    lineHeight: 1.1
+                  }}
+                >
                   "Valores que Transforman"
                 </Title>
                 <Paragraph 
@@ -658,6 +665,35 @@ const WhoWeAre = () => {
           </Col>
         </Row>
       </div>
+      
+      <style>{`
+        /* Estilos para móvil - reducir tamaño de fuente y márgenes */
+        @media (max-width: 768px) {
+          .values-summary-card {
+            padding: 24px 16px !important;
+            border-radius: 16px !important;
+          }
+          
+          .values-title {
+            font-size: 1.5rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 16px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .values-summary-card {
+            padding: 20px 12px !important;
+            border-radius: 12px !important;
+          }
+          
+          .values-title {
+            font-size: 1.25rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 12px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
