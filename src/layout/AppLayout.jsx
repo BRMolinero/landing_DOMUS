@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, Button, Typography, Space, Drawer } from 'antd';
+import { Layout, Menu, Button, Typography, Space, Drawer, Modal } from 'antd';
 import {
   MenuOutlined,
   HomeOutlined,
   TeamOutlined,
   AppstoreOutlined,
-  ContactsOutlined
+  ContactsOutlined,
+  DownloadOutlined,
+  MobileOutlined,
+  DesktopOutlined
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from './Footer';
@@ -20,6 +23,7 @@ const { Title } = Typography;
 
 const AppLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [installModalOpen, setInstallModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,6 +36,14 @@ const AppLayout = () => {
       });
     }
     setMobileMenuOpen(false);
+  };
+
+  const handleInstallClick = () => {
+    setInstallModalOpen(true);
+  };
+
+  const handleGoToApp = () => {
+    window.location.href = 'https://domus-frontend.onrender.com';
   };
 
   const menuItems = [
@@ -166,6 +178,37 @@ const AppLayout = () => {
             />
 
             <Button
+              icon={<DownloadOutlined />}
+              onClick={handleInstallClick}
+              style={{
+                minWidth: 140,
+                height: 40,
+                borderRadius: '12px',
+                border: '2px solid #00C2C7',
+                color: '#00C2C7',
+                fontWeight: 600,
+                fontSize: '15px',
+                transition: 'all 0.3s ease',
+                marginLeft: '16px',
+                background: 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(0, 194, 199, 0.1)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.borderColor = '#0B3C5D';
+                e.target.style.color = '#0B3C5D';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'transparent';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.borderColor = '#00C2C7';
+                e.target.style.color = '#00C2C7';
+              }}
+            >
+              Instalar
+            </Button>
+
+            <Button
               type="primary"
               /* onClick={() => navigate('/login')} */
               onClick={() => window.location.href = 'https://domus-frontend.onrender.com/login'}
@@ -179,7 +222,7 @@ const AppLayout = () => {
                 fontWeight: 600,
                 fontSize: '15px',
                 transition: 'all 0.3s ease',
-                marginLeft: '16px'
+                marginLeft: '8px'
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
@@ -273,13 +316,48 @@ const AppLayout = () => {
         <div style={{
           marginTop: 32,
           textAlign: 'center',
-          padding: '0 24px'
+          padding: '0 24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12
         }}>
+          <Button
+            icon={<DownloadOutlined />}
+            onClick={() => {
+              handleInstallClick();
+              setMobileMenuOpen(false);
+            }}
+            style={{
+              width: '100%',
+              height: 48,
+              borderRadius: '12px',
+              border: '2px solid #00C2C7',
+              color: '#00C2C7',
+              fontWeight: 600,
+              fontSize: '16px',
+              background: 'transparent'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(0, 194, 199, 0.1)';
+              e.target.style.borderColor = '#0B3C5D';
+              e.target.style.color = '#0B3C5D';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'transparent';
+              e.target.style.borderColor = '#00C2C7';
+              e.target.style.color = '#00C2C7';
+            }}
+          >
+            Instalar
+          </Button>
+
           <Button
             type="primary"
             /* onClick={() => navigate('/login')} */
-            onClick={() => window.location.href = 'https://domus-frontend.onrender.com/login'}
-
+            onClick={() => {
+              window.location.href = 'https://domus-frontend.onrender.com/login';
+              setMobileMenuOpen(false);
+            }}
             style={{
               width: '100%',
               height: 48,
@@ -304,6 +382,110 @@ const AppLayout = () => {
       </Content>
 
       <WhatsAppButton />
+
+      {/* Modal de Instalación */}
+      <Modal
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <DownloadOutlined style={{ fontSize: 24, color: '#00C2C7' }} />
+            <span style={{ fontSize: 20, fontWeight: 600 }}>Instalar Domus</span>
+          </div>
+        }
+        open={installModalOpen}
+        onCancel={() => setInstallModalOpen(false)}
+        footer={[
+          <Button key="cancel" onClick={() => setInstallModalOpen(false)}>
+            Cancelar
+          </Button>,
+          <Button 
+            key="go" 
+            type="primary" 
+            onClick={handleGoToApp}
+            style={{
+              background: 'linear-gradient(135deg, #00C2C7, #0B3C5D)',
+              borderColor: 'transparent'
+            }}
+          >
+            Ir a la Aplicación
+          </Button>
+        ]}
+        width={600}
+        style={{ top: 50 }}
+      >
+        <div style={{ padding: '8px 0' }}>
+          <p style={{ fontSize: 16, marginBottom: 24, color: '#4B5563' }}>
+            Domus está disponible como <strong>Progressive Web App (PWA)</strong>. 
+            Puedes instalarla en tu dispositivo para acceder rápidamente y usarla sin conexión.
+          </p>
+
+          <div style={{ marginBottom: 24 }}>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 12, 
+              marginBottom: 16,
+              padding: '12px 16px',
+              background: 'rgba(0, 194, 199, 0.05)',
+              borderRadius: '8px'
+            }}>
+              <DesktopOutlined style={{ fontSize: 20, color: '#00C2C7' }} />
+              <div>
+                <strong style={{ fontSize: 16, color: '#0B3C5D' }}>En Computadora (Chrome/Edge)</strong>
+                <div style={{ fontSize: 14, color: '#4B5563', marginTop: 4 }}>
+                  Haz clic en el icono <strong>+</strong> en la barra de direcciones o ve a <strong>Menú → Instalar Domus</strong>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 12, 
+              marginBottom: 16,
+              padding: '12px 16px',
+              background: 'rgba(0, 194, 199, 0.05)',
+              borderRadius: '8px'
+            }}>
+              <MobileOutlined style={{ fontSize: 20, color: '#00C2C7' }} />
+              <div>
+                <strong style={{ fontSize: 16, color: '#0B3C5D' }}>En Móvil (Android)</strong>
+                <div style={{ fontSize: 14, color: '#4B5563', marginTop: 4 }}>
+                  Abre el menú del navegador → <strong>"Agregar a la pantalla de inicio"</strong> o <strong>"Instalar app"</strong>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 12,
+              padding: '12px 16px',
+              background: 'rgba(0, 194, 199, 0.05)',
+              borderRadius: '8px'
+            }}>
+              <MobileOutlined style={{ fontSize: 20, color: '#00C2C7' }} />
+              <div>
+                <strong style={{ fontSize: 16, color: '#0B3C5D' }}>En iPhone/iPad (Safari)</strong>
+                <div style={{ fontSize: 14, color: '#4B5563', marginTop: 4 }}>
+                  Toca el botón <strong>Compartir</strong> → <strong>"Agregar a pantalla de inicio"</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ 
+            padding: '16px', 
+            background: 'linear-gradient(135deg, rgba(0, 194, 199, 0.1) 0%, rgba(11, 60, 93, 0.1) 100%)',
+            borderRadius: '8px',
+            border: '1px solid rgba(0, 194, 199, 0.2)'
+          }}>
+            <p style={{ margin: 0, fontSize: 14, color: '#0B3C5D', fontWeight: 500 }}>
+              💡 <strong>Consejo:</strong> Al hacer clic en "Ir a la Aplicación", el navegador puede mostrarte automáticamente 
+              una notificación para instalar la app si cumples con los requisitos.
+            </p>
+          </div>
+        </div>
+      </Modal>
 
       {/* Custom CSS for enhanced navbar styles */}
       <style jsx>{`
