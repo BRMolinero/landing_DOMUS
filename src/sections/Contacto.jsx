@@ -369,7 +369,7 @@ const Contacto = () => {
             </Col>
 
             {/* Divisor visual */}
-            <Col xs={24} md={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col xs={24} md={1} className="contact-divider" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div style={{
                 width: '3px',
                 height: '300px',
@@ -615,6 +615,16 @@ const Contacto = () => {
           </Row>
         </div>
       </section>
+      
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @media (max-width: 767px) {
+            .contact-divider {
+              display: none !important;
+            }
+          }
+        `
+      }} />
     </>
   );
 };

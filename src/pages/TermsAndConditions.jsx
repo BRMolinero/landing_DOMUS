@@ -139,7 +139,7 @@ const TermsAndConditions = () => {
               humanix-tech desarrolla y comercializa Domüs, un robot asistente integral diseñado para mejorar 
               la autonomía, seguridad y calidad de vida de personas con movilidad reducida, visión reducida 
               y adultos mayores. Incluye funciones de detección de objetos perdidos, monitoreo del clima 
-              y detección de monóxido de carbono.
+              y detección de gases tóxicos.
             </Paragraph>
 
             <Title level={2} style={{ color: '#0B3C5D', marginTop: 32, marginBottom: 16, fontSize: '1.4rem' }}>

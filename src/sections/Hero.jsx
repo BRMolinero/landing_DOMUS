@@ -176,12 +176,17 @@ const Hero = () => {
                 </div>
               </div>
 
-              <Space size="large" wrap>
+              <div className="hero-buttons-container" style={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: 16
+              }}>
                 <Button
                   type="primary"
                   size="large"
                   icon={<ArrowRightOutlined />}
                   onClick={() => scrollToSection('product')}
+                  className="hero-button-primary"
                   style={{
                     height: 64,
                     paddingLeft: 40,
@@ -192,7 +197,8 @@ const Hero = () => {
                     borderColor: 'transparent',
                     borderRadius: 16,
                     boxShadow: '0 8px 24px rgba(0, 194, 199, 0.3)',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
+                    width: 'auto'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.transform = 'translateY(-2px)';
@@ -211,6 +217,7 @@ const Hero = () => {
                   /* icon={<PlayCircleOutlined />} */
                   icon={<ArrowRightOutlined />}
                   onClick={() => scrollToSection('contacto')}
+                  className="hero-button-secondary"
                   style={{
                     height: 64,
                     paddingLeft: 40,
@@ -222,7 +229,8 @@ const Hero = () => {
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     borderRadius: 16,
                     backdropFilter: 'blur(10px)',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
+                    width: 'auto'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
@@ -237,11 +245,11 @@ const Hero = () => {
                 >
                   Contactar Ahora
                 </Button>
-              </Space>
+              </div>
             </Space>
           </Col>
 
-          <Col xs={24} lg={12}>
+          <Col xs={24} lg={12} className="hero-card-section">
             <div style={{ 
               display: 'flex', 
               justifyContent: 'center',
@@ -344,6 +352,42 @@ const Hero = () => {
           </Col>
         </Row>
       </div>
+      
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @media (max-width: 768px) {
+            .hero-card-section {
+              display: none !important;
+            }
+            
+            .hero-buttons-container {
+              flex-direction: row !important;
+              gap: 12px !important;
+            }
+            
+            .hero-button-primary,
+            .hero-button-secondary {
+              width: calc(50% - 6px) !important;
+              height: 48px !important;
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+              font-size: 14px !important;
+              border-radius: 12px !important;
+            }
+          }
+          
+          @media (min-width: 769px) {
+            .hero-buttons-container {
+              flex-direction: row;
+            }
+            
+            .hero-button-primary,
+            .hero-button-secondary {
+              width: auto;
+            }
+          }
+        `
+      }} />
     </section>
   );
 };

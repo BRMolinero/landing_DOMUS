@@ -15,16 +15,6 @@ const { Title, Paragraph } = Typography;
 const Product = () => {
   const features = [
     {
-      icon: <SearchOutlined style={{ fontSize: 32, color: 'white' }} />,
-      title: 'Detección de Objetos Perdidos',
-      description: 'Localiza objetos pequeños (tapas, llaves, pastillas) usando cámara, e IA, avisando al usuario con una alerta sonora.',
-      borderColor: '#F6963F',
-      iconBg: '#F6963F',
-      titleColor: '#F6963F',
-      gradient: 'linear-gradient(135deg, #F6963F, #FFB74D)',
-      bgGradient: 'linear-gradient(135deg, rgba(246, 150, 63, 0.1), rgba(255, 183, 77, 0.05))'
-    },
-    {
       icon: <CloudOutlined style={{ fontSize: 32, color: 'white' }} />,
       title: 'Monitoreo Ambiental',
       description: 'Mide temperatura, humedad y calidad del aire para mantener un ambiente saludable en el hogar.',
@@ -36,8 +26,8 @@ const Product = () => {
     },
     {
       icon: <ExclamationCircleOutlined style={{ fontSize: 32, color: 'white' }} />,
-      title: 'Detección de Monóxido de Carbono',
-      description: 'Sensor interno que alerta con sonido y aviso automático sobre fugas de gas o monóxido de carbono, siendo una función preventiva vital.',
+      title: 'Detección de Gases Tóxicos',
+      description: 'Sensor interno que alerta con sonido y aviso automático sobre fugas de gases tóxicos, siendo una función preventiva vital.',
       borderColor: '#D95766',
       iconBg: '#D95766',
       titleColor: '#D95766',
@@ -252,9 +242,9 @@ const Product = () => {
             </Col>
 
             <Col xs={24}>
-              <Row gutter={[32, 32]}>
+              <Row gutter={[32, 32]} justify="center">
                 {features.map((feature, index) => (
-                  <Col xs={24} sm={12} lg={8} key={index}>
+                  <Col xs={24} sm={12} lg={10} key={index}>
                     <Card
                       style={{
                         borderRadius: 24,

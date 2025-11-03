@@ -87,7 +87,7 @@ const AppLayout = () => {
           transition: 'all 0.3s ease'
         }}
       >
-        <div style={{
+        <div className="navbar-container" style={{
           maxWidth: 1200,
           margin: '0 auto',
           padding: '0 16px',
@@ -178,31 +178,39 @@ const AppLayout = () => {
             />
 
             <Button
-              icon={<DownloadOutlined />}
+              icon={<DownloadOutlined style={{ fontSize: 16 }} />}
               onClick={handleInstallClick}
+              className="install-button"
               style={{
                 minWidth: 140,
-                height: 40,
+                height: 42,
                 borderRadius: '12px',
                 border: '2px solid #00C2C7',
                 color: '#00C2C7',
                 fontWeight: 600,
                 fontSize: '15px',
-                transition: 'all 0.3s ease',
+                padding: '8px 20px',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 marginLeft: '16px',
-                background: 'transparent'
+                background: 'linear-gradient(135deg, rgba(0, 194, 199, 0.08) 0%, rgba(11, 60, 93, 0.05) 100%)',
+                boxShadow: '0 2px 8px rgba(0, 194, 199, 0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(0, 194, 199, 0.1)';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.borderColor = '#0B3C5D';
-                e.target.style.color = '#0B3C5D';
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 194, 199, 0.15) 0%, rgba(11, 60, 93, 0.1) 100%)';
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                e.currentTarget.style.borderColor = '#0B3C5D';
+                e.currentTarget.style.color = '#0B3C5D';
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 194, 199, 0.3)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'transparent';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.borderColor = '#00C2C7';
-                e.target.style.color = '#00C2C7';
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 194, 199, 0.08) 0%, rgba(11, 60, 93, 0.05) 100%)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.borderColor = '#00C2C7';
+                e.currentTarget.style.color = '#00C2C7';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 194, 199, 0.15)';
               }}
             >
               Instalar
@@ -318,34 +326,46 @@ const AppLayout = () => {
           textAlign: 'center',
           padding: '0 24px',
           display: 'flex',
-          flexDirection: 'column',
-          gap: 12
+          flexDirection: 'row',
+          gap: 8
         }}>
           <Button
-            icon={<DownloadOutlined />}
+            icon={<DownloadOutlined style={{ fontSize: 14 }} />}
             onClick={() => {
               handleInstallClick();
               setMobileMenuOpen(false);
             }}
+            className="install-button-mobile"
             style={{
-              width: '100%',
-              height: 48,
-              borderRadius: '12px',
-              border: '2px solid #00C2C7',
+              width: 'calc(50% - 4px)',
+              height: 40,
+              borderRadius: '8px',
+              border: '1.5px solid #00C2C7',
               color: '#00C2C7',
               fontWeight: 600,
-              fontSize: '16px',
-              background: 'transparent'
+              fontSize: '13px',
+              padding: '8px 12px',
+              transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              background: 'linear-gradient(135deg, rgba(0, 194, 199, 0.08) 0%, rgba(11, 60, 93, 0.05) 100%)',
+              boxShadow: '0 1px 4px rgba(0, 194, 199, 0.15)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 6
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(0, 194, 199, 0.1)';
-              e.target.style.borderColor = '#0B3C5D';
-              e.target.style.color = '#0B3C5D';
+              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 194, 199, 0.15) 0%, rgba(11, 60, 93, 0.1) 100%)';
+              e.currentTarget.style.borderColor = '#0B3C5D';
+              e.currentTarget.style.color = '#0B3C5D';
+              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 194, 199, 0.3)';
+              e.currentTarget.style.transform = 'scale(1.02)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = 'transparent';
-              e.target.style.borderColor = '#00C2C7';
-              e.target.style.color = '#00C2C7';
+              e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 194, 199, 0.08) 0%, rgba(11, 60, 93, 0.05) 100%)';
+              e.currentTarget.style.borderColor = '#00C2C7';
+              e.currentTarget.style.color = '#00C2C7';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 194, 199, 0.15)';
+              e.currentTarget.style.transform = 'scale(1)';
             }}
           >
             Instalar
@@ -359,13 +379,14 @@ const AppLayout = () => {
               setMobileMenuOpen(false);
             }}
             style={{
-              width: '100%',
-              height: 48,
-              borderRadius: '12px',
+              width: 'calc(50% - 4px)',
+              height: 40,
+              borderRadius: '8px',
               background: 'linear-gradient(135deg, #00C2C7, #0B3C5D)',
               borderColor: 'transparent',
               fontWeight: 600,
-              fontSize: '16px'
+              fontSize: '13px',
+              padding: '8px 12px'
             }}
           >
             Acceder
@@ -388,36 +409,16 @@ const AppLayout = () => {
         title={
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <DownloadOutlined style={{ fontSize: 24, color: '#00C2C7' }} />
-            <span style={{ fontSize: 20, fontWeight: 600 }}>Instalar Domus</span>
+            <span style={{ fontSize: 20, fontWeight: 600 }}>Instalar Domüs</span>
           </div>
         }
         open={installModalOpen}
         onCancel={() => setInstallModalOpen(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setInstallModalOpen(false)}>
-            Cancelar
-          </Button>,
-          <Button 
-            key="go" 
-            type="primary" 
-            onClick={handleGoToApp}
-            style={{
-              background: 'linear-gradient(135deg, #00C2C7, #0B3C5D)',
-              borderColor: 'transparent'
-            }}
-          >
-            Ir a la Aplicación
-          </Button>
-        ]}
+        footer={null}
         width={600}
         style={{ top: 50 }}
       >
         <div style={{ padding: '8px 0' }}>
-          <p style={{ fontSize: 16, marginBottom: 24, color: '#4B5563' }}>
-            Domus está disponible como <strong>Progressive Web App (PWA)</strong>. 
-            Puedes instalarla en tu dispositivo para acceder rápidamente y usarla sin conexión.
-          </p>
-
           <div style={{ marginBottom: 24 }}>
             <div style={{ 
               display: 'flex', 
@@ -432,7 +433,7 @@ const AppLayout = () => {
               <div>
                 <strong style={{ fontSize: 16, color: '#0B3C5D' }}>En Computadora (Chrome/Edge)</strong>
                 <div style={{ fontSize: 14, color: '#4B5563', marginTop: 4 }}>
-                  Haz clic en el icono <strong>+</strong> en la barra de direcciones o ve a <strong>Menú → Instalar Domus</strong>
+                  Haz clic en el icono <strong>+</strong> en la barra de direcciones o ve a <strong>Menú → Instalar Domüs</strong>
                 </div>
               </div>
             </div>
@@ -473,17 +474,6 @@ const AppLayout = () => {
             </div>
           </div>
 
-          <div style={{ 
-            padding: '16px', 
-            background: 'linear-gradient(135deg, rgba(0, 194, 199, 0.1) 0%, rgba(11, 60, 93, 0.1) 100%)',
-            borderRadius: '8px',
-            border: '1px solid rgba(0, 194, 199, 0.2)'
-          }}>
-            <p style={{ margin: 0, fontSize: 14, color: '#0B3C5D', fontWeight: 500 }}>
-              💡 <strong>Consejo:</strong> Al hacer clic en "Ir a la Aplicación", el navegador puede mostrarte automáticamente 
-              una notificación para instalar la app si cumples con los requisitos.
-            </p>
-          </div>
         </div>
       </Modal>
 
@@ -545,8 +535,24 @@ const AppLayout = () => {
         }
         
         @media (max-width: 768px) {
+          .navbar-container {
+            padding: 0 8px !important;
+          }
+          
+          .navbar-container img {
+            height: 45px !important;
+            margin-right: 10px !important;
+          }
+          
+          .navbar-container .ant-typography {
+            font-size: 1rem !important;
+          }
+          
           .mobile-menu-button {
             display: flex !important;
+            width: 40px !important;
+            height: 40px !important;
+            margin-left: 8px !important;
           }
           
           .ant-menu-horizontal {
@@ -562,6 +568,63 @@ const AppLayout = () => {
           .mobile-menu-button {
             display: none !important;
           }
+        }
+        
+        /* Estilos mejorados para el botón Instalar */
+        .install-button {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .install-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .install-button:hover::before {
+          left: 100%;
+        }
+        
+        .install-button .anticon {
+          transition: transform 0.3s ease;
+        }
+        
+        .install-button:hover .anticon {
+          transform: translateY(-2px) scale(1.1);
+        }
+        
+        .install-button-mobile {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .install-button-mobile::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .install-button-mobile:hover::before {
+          left: 100%;
+        }
+        
+        .install-button-mobile:active {
+          transform: scale(0.98);
+        }
+        
+        .install-button:active {
+          transform: translateY(0) scale(0.98) !important;
         }
       `}</style>
     </Layout>
