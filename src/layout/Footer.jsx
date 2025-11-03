@@ -42,23 +42,24 @@ const Footer = () => {
         padding: '48px 0 24px',
         marginTop: 'auto',
         borderTop: '1px solid #E5E7EB'
-      }}>
+      }} className="footer-main">
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <Row gutter={[32, 32]}>
             {/* Brand Column */}
-            <Col xs={24} md={6}>
-              <div style={{ marginBottom: 16, textAlign: 'center' }}>
+            <Col xs={24} md={6} className="footer-logo-col">
+              <div style={{ marginBottom: 16, textAlign: 'center' }} className="footer-logo-wrapper">
                 <img 
                   src="/logo.png" 
                   alt="Humanix-tech Logo" 
                   style={{ height: 200, marginBottom: 16, borderRadius: '50%' }}
+                  className="footer-logo-img"
                 />
               </div>
             </Col>
 
             {/* Contact Information Column */}
-            <Col xs={24} md={6}>
-              <Title level={5} style={{ color: '#0B3C5D', marginBottom: 16 }}>
+            <Col xs={24} md={6} className="footer-contact-col">
+              <Title level={5} style={{ color: '#0B3C5D', marginBottom: 16 }} className="footer-contact-title">
                 Contacto
               </Title>
               <Space direction="vertical" size="small" style={{ width: '100%' }}>
@@ -139,7 +140,10 @@ const Footer = () => {
                 <Button 
                   type="link" 
                   style={{ color: '#4B5563', padding: 0, height: 'auto' }}
-                  onClick={() => navigate('/privacy')}
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    navigate('/privacy');
+                  }}
                 >
                   Política de Privacidad
                 </Button>
@@ -192,6 +196,72 @@ const Footer = () => {
             </Col>
           </Row>
         </div>
+        
+        <style>{`
+          /* Reducir espacio entre logo y título Contacto en móvil */
+          @media (max-width: 768px) {
+            .footer-main {
+              padding-top: 24px !important;
+            }
+            
+            .footer-logo-wrapper {
+              margin-bottom: 0px !important;
+              margin-top: 0 !important;
+            }
+            
+            .footer-logo-img {
+              margin-bottom: 0px !important;
+            }
+            
+            .footer-logo-col {
+              margin-bottom: 0px !important;
+              margin-top: 0 !important;
+              padding-top: 0 !important;
+              padding-bottom: 0 !important;
+            }
+            
+            .footer-contact-col {
+              margin-top: 0 !important;
+              padding-top: 0 !important;
+            }
+            
+            .footer-contact-title {
+              margin-top: 0 !important;
+              margin-bottom: 12px !important;
+            }
+            
+            /* Reducir el gutter del Row en móvil */
+            .ant-row.ant-row-gutter-32 {
+              row-gap: 4px !important;
+            }
+            
+            /* Reducir el padding vertical de las columnas */
+            .footer-logo-col .ant-col,
+            .footer-contact-col .ant-col {
+              padding-top: 0 !important;
+              padding-bottom: 0 !important;
+            }
+          }
+          
+          /* Reducir espacio también en desktop */
+          @media (min-width: 769px) {
+            .footer-logo-col {
+              margin-bottom: 0px !important;
+            }
+            
+            .footer-logo-wrapper {
+              margin-bottom: 0px !important;
+            }
+            
+            .footer-logo-img {
+              margin-bottom: 0px !important;
+            }
+            
+            .ant-row.ant-row-gutter-32 {
+              row-gap: 16px !important;
+            }
+          }
+        `}</style>
       </footer>
     </>
   );
