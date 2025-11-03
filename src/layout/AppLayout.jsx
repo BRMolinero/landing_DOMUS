@@ -7,8 +7,7 @@ import {
   AppstoreOutlined,
   ContactsOutlined,
   DownloadOutlined,
-  MobileOutlined,
-  DesktopOutlined
+  MobileOutlined
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from './Footer';
@@ -420,24 +419,6 @@ const AppLayout = () => {
       >
         <div style={{ padding: '8px 0' }}>
           <div style={{ marginBottom: 24 }}>
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: 12, 
-              marginBottom: 16,
-              padding: '12px 16px',
-              background: 'rgba(0, 194, 199, 0.05)',
-              borderRadius: '8px'
-            }}>
-              <DesktopOutlined style={{ fontSize: 20, color: '#00C2C7' }} />
-              <div>
-                <strong style={{ fontSize: 16, color: '#0B3C5D' }}>En Computadora (Chrome/Edge)</strong>
-                <div style={{ fontSize: 14, color: '#4B5563', marginTop: 4 }}>
-                  Haz clic en el icono <strong>+</strong> en la barra de direcciones o ve a <strong>Menú → Instalar Domüs</strong>
-                </div>
-              </div>
-            </div>
-
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 

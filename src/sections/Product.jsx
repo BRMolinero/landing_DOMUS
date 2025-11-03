@@ -15,7 +15,7 @@ const { Title, Paragraph } = Typography;
 const Product = () => {
   const features = [
     {
-      icon: <CloudOutlined style={{ fontSize: 32, color: 'white' }} />,
+      icon: <CloudOutlined style={{ fontSize: 40, color: 'white' }} />,
       title: 'Monitoreo Ambiental',
       description: 'Mide temperatura, humedad y calidad del aire para mantener un ambiente saludable en el hogar.',
       borderColor: '#00C2C7',
@@ -25,7 +25,7 @@ const Product = () => {
       bgGradient: 'linear-gradient(135deg, rgba(0, 194, 199, 0.1), rgba(77, 208, 225, 0.05))'
     },
     {
-      icon: <ExclamationCircleOutlined style={{ fontSize: 32, color: 'white' }} />,
+      icon: <ExclamationCircleOutlined style={{ fontSize: 40, color: 'white' }} />,
       title: 'Detección de Gases Tóxicos',
       description: 'Sensor interno que alerta con sonido y aviso automático sobre fugas de gases tóxicos, siendo una función preventiva vital.',
       borderColor: '#D95766',
@@ -139,8 +139,8 @@ const Product = () => {
                 }}>
                   <div style={{
                     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%)',
-                    borderRadius: '24px',
-                    padding: '40px',
+                    borderRadius: '20px',
+                    padding: '24px',
                     boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(246, 150, 63, 0.2)',
                     border: '2px solid rgba(255, 255, 255, 0.3)',
                     backdropFilter: 'blur(20px)',
@@ -196,13 +196,14 @@ const Product = () => {
                 
                 <div style={{
                   marginBottom: 32,
-                  padding: '24px 40px',
+                  padding: '24px',
                   background: 'linear-gradient(180deg, #1a4a6b 0%, #0B3C5D 100%)',
-                  borderRadius: '16px',
+                  borderRadius: '20px',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
-                  maxWidth: 650,
+                  maxWidth: '400px',
+                  width: '100%',
                   margin: '0 auto 32px',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2)',
                   position: 'relative',
                   transform: 'translateY(-2px)',
                   transition: 'all 0.3s ease'
@@ -242,22 +243,23 @@ const Product = () => {
             </Col>
 
             <Col xs={24}>
-              <Row gutter={[32, 32]} justify="center">
+              <Row gutter={[40, 40]} justify="center">
                 {features.map((feature, index) => (
                   <Col xs={24} sm={12} lg={10} key={index}>
                     <Card
                       style={{
-                        borderRadius: 24,
-                        border: 'none',
-                        boxShadow: '0 12px 40px rgba(0,0,0,0.2)',
-                        transition: 'all 0.4s ease',
+                        borderRadius: 28,
+                        border: `2px solid ${feature.borderColor}20`,
+                        boxShadow: `0 16px 48px ${feature.borderColor}15, 0 4px 16px rgba(0,0,0,0.1)`,
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                         height: '100%',
+                        minHeight: 400,
                         background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
                         overflow: 'hidden',
                         position: 'relative'
                       }}
                       bodyStyle={{ 
-                        padding: 40,
+                        padding: 48,
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
@@ -266,50 +268,76 @@ const Product = () => {
                       }}
                       hoverable
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-12px)';
-                        e.currentTarget.style.boxShadow = `0 20px 60px ${feature.borderColor}30`;
+                        e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+                        e.currentTarget.style.boxShadow = `0 24px 64px ${feature.borderColor}30, 0 8px 24px rgba(0,0,0,0.15)`;
+                        e.currentTarget.style.borderColor = `${feature.borderColor}40`;
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.2)';
+                        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                        e.currentTarget.style.boxShadow = `0 16px 48px ${feature.borderColor}15, 0 4px 16px rgba(0,0,0,0.1)`;
+                        e.currentTarget.style.borderColor = `${feature.borderColor}20`;
                       }}
                     >
-                      {/* Decoración de fondo */}
+                      {/* Decoración de fondo mejorada */}
                       <div style={{
                         position: 'absolute',
-                        top: -30,
-                        right: -30,
+                        top: -40,
+                        right: -40,
+                        width: 160,
+                        height: 160,
+                        background: `${feature.bgGradient}`,
+                        borderRadius: '50%',
+                        zIndex: 0,
+                        opacity: 0.6
+                      }} />
+                      <div style={{
+                        position: 'absolute',
+                        bottom: -30,
+                        left: -30,
                         width: 120,
                         height: 120,
                         background: `${feature.bgGradient}`,
                         borderRadius: '50%',
-                        zIndex: 0
+                        zIndex: 0,
+                        opacity: 0.4
                       }} />
                       
+                      {/* Icono mejorado */}
                       <div style={{
-                        width: 80,
-                        height: 80,
-                        borderRadius: '20px',
+                        width: 96,
+                        height: 96,
+                        borderRadius: '24px',
                         background: `${feature.gradient}`,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        marginBottom: 24,
-                        boxShadow: `0 8px 24px ${feature.borderColor}40`,
+                        marginBottom: 32,
+                        boxShadow: `0 12px 32px ${feature.borderColor}35, 0 4px 12px rgba(0,0,0,0.15)`,
                         position: 'relative',
-                        zIndex: 1
-                      }}>
-                        {feature.icon}
+                        zIndex: 1,
+                        transition: 'all 0.3s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.1) rotate(5deg)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+                      }}
+                      >
+                        <div style={{ fontSize: 40, color: 'white' }}>
+                          {feature.icon}
+                        </div>
                       </div>
                       
                       <Title 
-                        level={4} 
+                        level={3} 
                         style={{ 
                           color: feature.titleColor,
-                          marginBottom: 20,
-                          fontSize: '1.5rem',
-                          fontWeight: 700,
-                          lineHeight: 1.3
+                          marginBottom: 24,
+                          fontSize: '1.75rem',
+                          fontWeight: 800,
+                          lineHeight: 1.2,
+                          letterSpacing: '-0.5px'
                         }}
                       >
                         {feature.title}
@@ -318,11 +346,12 @@ const Product = () => {
                       <Paragraph 
                         style={{ 
                           color: '#4B5563',
-                          lineHeight: 1.7,
+                          lineHeight: 1.8,
                           marginBottom: 0,
                           flex: 1,
-                          fontSize: '16px',
-                          fontWeight: 500
+                          fontSize: '17px',
+                          fontWeight: 400,
+                          letterSpacing: '0.2px'
                         }}
                       >
                         {feature.description}
