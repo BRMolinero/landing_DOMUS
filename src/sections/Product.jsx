@@ -428,14 +428,28 @@ const Product = () => {
                     style={{ 
                       color: '#4B5563', 
                       fontSize: '1.25rem',
+                      marginBottom: 20,
+                      maxWidth: 900,
+                      margin: '0 auto 20px',
+                      fontWeight: 500,
+                      lineHeight: 1.7
+                    }}
+                  >
+                    Domüs no solo mide el aire, lo entiende e interpreta para mejorar la vida dentro del hogar.
+                  </Paragraph>
+                  
+                  <Paragraph 
+                    style={{ 
+                      color: '#4B5563', 
+                      fontSize: '1.25rem',
                       marginBottom: 40,
-                      maxWidth: 600,
+                      maxWidth: 900,
                       margin: '0 auto 40px',
                       fontWeight: 500,
                       lineHeight: 1.7
                     }}
                   >
-                    Domüs no es solo tecnología avanzada; es tu compañero inteligente que transforma cada día en una experiencia más segura, autónoma y tranquila para ti y tu familia.
+                    Es tu compañero inteligente que transforma cada día en una experiencia más segura, autónoma y tranquila para ti y tu familia.
                   </Paragraph>
                   
                   <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>

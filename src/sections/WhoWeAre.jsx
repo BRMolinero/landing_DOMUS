@@ -188,51 +188,54 @@ const WhoWeAre = () => {
                 zIndex: 0
               }} />
               
-              <div aria-labelledby="mission-title" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 60,
-                  height: 60,
-                  background: 'linear-gradient(135deg, #274181, #95CDD1)',
-                  borderRadius: '16px',
-                  marginBottom: 24,
-                  boxShadow: '0 8px 20px rgba(39, 65, 129, 0.3)'
-                }}>
-                  <AimOutlined style={{ fontSize: 28, color: 'white' }} />
-                </div>
+              <div aria-labelledby="mission-title" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 60,
+                    height: 60,
+                    background: 'linear-gradient(135deg, #274181, #95CDD1)',
+                    borderRadius: '16px',
+                    marginBottom: 24,
+                    boxShadow: '0 8px 20px rgba(39, 65, 129, 0.3)'
+                  }}>
+                    <AimOutlined style={{ fontSize: 28, color: 'white' }} />
+                  </div>
 
-                <Title 
-                  id="mission-title"
-                  level={2} 
-                  style={{ 
-                    color: '#274181',
-                    marginBottom: 20,
-                    fontSize: '2.5rem',
-                    fontWeight: 800,
-                    lineHeight: 1.1
-                  }}
-                >
-                  Misión
-                </Title>
-                
-                <Paragraph 
-                  style={{ 
-                    fontSize: '1.25rem',
-                    fontWeight: 500,
-                    color: '#4B5563',
-                    marginBottom: 32,
-                    lineHeight: 1.7
-                  }}
-                >
-                  Creemos que la tecnología puede ser mucho más que funcional: puede ser empática, cálida y humana. Por eso creamos soluciones que acompañan, protegen y empoderan a las personas, brindándoles independencia y tranquilidad a sus familias.
-                </Paragraph>
+                  <Title 
+                    id="mission-title"
+                    level={2} 
+                    style={{ 
+                      color: '#274181',
+                      marginBottom: 20,
+                      fontSize: '2.5rem',
+                      fontWeight: 800,
+                      lineHeight: 1.1
+                    }}
+                  >
+                    Misión
+                  </Title>
+                  
+                  <Paragraph 
+                    style={{ 
+                      fontSize: '1.25rem',
+                      fontWeight: 500,
+                      color: '#4B5563',
+                      marginBottom: 32,
+                      lineHeight: 1.7
+                    }}
+                  >
+                    Creemos que la tecnología puede ser mucho más que funcional: puede ser empática, cálida y humana. Por eso creamos soluciones que acompañan, protegen y empoderan a las personas, brindándoles independencia y tranquilidad a sus familias.
+                  </Paragraph>
+                </div>
 
                 <ul style={{ 
                   listStyle: 'none', 
                   padding: 0, 
                   margin: 0,
+                  marginTop: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '16px'
@@ -330,51 +333,54 @@ const WhoWeAre = () => {
                 zIndex: 0
               }} />
               
-              <div aria-labelledby="vision-title" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 60,
-                  height: 60,
-                  background: 'linear-gradient(135deg, #95CDD1, #274181)',
-                  borderRadius: '16px',
-                  marginBottom: 24,
-                  boxShadow: '0 8px 20px rgba(149, 205, 209, 0.3)'
-                }}>
-                  <BulbOutlined style={{ fontSize: 28, color: 'white' }} />
-                </div>
+              <div aria-labelledby="vision-title" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 60,
+                    height: 60,
+                    background: 'linear-gradient(135deg, #95CDD1, #274181)',
+                    borderRadius: '16px',
+                    marginBottom: 24,
+                    boxShadow: '0 8px 20px rgba(149, 205, 209, 0.3)'
+                  }}>
+                    <BulbOutlined style={{ fontSize: 28, color: 'white' }} />
+                  </div>
 
-                <Title 
-                  id="vision-title"
-                  level={2} 
-                  style={{ 
-                    color: '#274181',
-                    marginBottom: 20,
-                    fontSize: '2.5rem',
-                    fontWeight: 800,
-                    lineHeight: 1.1
-                  }}
-                >
-                  Visión
-                </Title>
-                
-                <Paragraph 
-                  style={{ 
-                    fontSize: '1.25rem',
-                    fontWeight: 500,
-                    color: '#4B5563',
-                    marginBottom: 32,
-                    lineHeight: 1.7
-                  }}
-                >
-                  Soñamos con un futuro donde la innovación esté al servicio del cuidado, y donde cada avance tecnológico acerque más a las personas a una vida plena, segura y autónoma.
-                </Paragraph>
+                  <Title 
+                    id="vision-title"
+                    level={2} 
+                    style={{ 
+                      color: '#274181',
+                      marginBottom: 20,
+                      fontSize: '2.5rem',
+                      fontWeight: 800,
+                      lineHeight: 1.1
+                    }}
+                  >
+                    Visión
+                  </Title>
+                  
+                  <Paragraph 
+                    style={{ 
+                      fontSize: '1.25rem',
+                      fontWeight: 500,
+                      color: '#4B5563',
+                      marginBottom: 32,
+                      lineHeight: 1.7
+                    }}
+                  >
+                    Soñamos con un futuro donde la innovación esté al servicio del cuidado, y donde cada avance tecnológico acerque más a las personas a una vida plena, segura y autónoma.
+                  </Paragraph>
+                </div>
 
                 <ul style={{ 
                   listStyle: 'none', 
                   padding: 0, 
                   margin: 0,
+                  marginTop: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '16px'
