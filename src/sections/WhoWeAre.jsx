@@ -152,8 +152,7 @@ const WhoWeAre = () => {
                   fontWeight: 500
                 }}
               >
-                En humanix-tech creamos tecnología asistiva que acompaña, protege y empodera 
-                a las personas en su vida cotidiana.
+                En humanix-tech creamos tecnología asistiva que acompaña, protege y empodera a las personas en su vida cotidiana. Buscamos fomentar hogares más saludables, brindando bienestar y seguridad doméstica
               </Paragraph>
             </div>
           </Col>
