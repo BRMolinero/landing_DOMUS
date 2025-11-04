@@ -18,7 +18,7 @@ const Hero = () => {
   const features = [
     {
       icon: <ThunderboltOutlined style={{ fontSize: 20, color: '#F6963F' }} />,
-      text: 'Autonomía'
+      text: 'Responsabilidad'
     },
     {
       icon: <StarOutlined style={{ fontSize: 20, color: '#95CDD1' }} />,
@@ -26,7 +26,7 @@ const Hero = () => {
     },
     {
       icon: <RocketOutlined style={{ fontSize: 20, color: '#D95766' }} />,
-      text: 'Compañía'
+      text: 'Sostenibilidad'
     }
   ];
 
@@ -136,12 +136,24 @@ const Hero = () => {
                     color: 'rgba(255, 255, 255, 0.9)', 
                     fontSize: '1.375rem',
                     lineHeight: 1.7,
-                    marginBottom: 40,
+                    marginBottom: 20,
                     fontWeight: 500,
                     maxWidth: 600
                   }}
                 >
                   Creemos que la tecnología puede ser más que inteligente: puede ser humana.
+                </Paragraph>
+                
+                <Paragraph 
+                  style={{ 
+                    color: 'rgba(255, 255, 255, 0.9)', 
+                    fontSize: '1.375rem',
+                    lineHeight: 1.7,
+                    marginBottom: 40,
+                    fontWeight: 500,
+                    maxWidth: 600
+                  }}
+                >
                   Creamos herramientas que acompañan, protegen y empoderan a las personas en su día a día.
                 </Paragraph>
 
