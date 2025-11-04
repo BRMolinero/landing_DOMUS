@@ -450,39 +450,10 @@ const AppLayout = () => {
                 <div style={{ 
                   fontSize: 14, 
                   color: '#4B5563',
-                  marginBottom: 16,
                   lineHeight: 1.6
                 }}>
                   Antes de instalar, necesitas acceder a la aplicación. Presiona el botón <strong>"Acceder"</strong> en el menú superior o usa el siguiente enlace:
                 </div>
-                <Button
-                  type="primary"
-                  onClick={() => {
-                    window.location.href = 'https://domus-frontend.onrender.com/login';
-                    setInstallModalOpen(false);
-                  }}
-                  style={{
-                    width: '100%',
-                    height: 42,
-                    borderRadius: '8px',
-                    background: 'linear-gradient(135deg, #00C2C7, #0B3C5D)',
-                    borderColor: 'transparent',
-                    fontWeight: 600,
-                    fontSize: '15px',
-                    transition: 'all 0.3s ease',
-                    boxShadow: '0 2px 8px rgba(0, 194, 199, 0.3)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.boxShadow = '0 4px 12px rgba(0, 194, 199, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = '0 2px 8px rgba(0, 194, 199, 0.3)';
-                  }}
-                >
-                  Acceder a la aplicación
-                </Button>
               </div>
             </div>
           </div>

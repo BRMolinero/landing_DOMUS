@@ -344,7 +344,7 @@ const Hero = () => {
                       lineHeight: 1.5
                     }}
                   >
-                    Creado para acompañar
+                    Inteligencia natural para tu hogar
                   </Paragraph>
                 </div>
               </div>

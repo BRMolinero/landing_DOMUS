@@ -18,8 +18,8 @@ const WhoWeAre = () => {
   const values = [
     {
       icon: <HeartOutlined style={{ fontSize: 32, color: 'white' }} />,
-      title: 'Autonomía',
-      description: 'Dar independencia real al usuario.',
+      title: 'Sostenibilidad',
+      description: 'Fomenta hogares más saludables y conscientes del medio ambiente',
       color: '#D95766',
       gradient: 'linear-gradient(135deg, #D95766, #E57373)'
     },
@@ -40,14 +40,14 @@ const WhoWeAre = () => {
     {
       icon: <TeamOutlined style={{ fontSize: 32, color: 'white' }} />,
       title: 'Accesibilidad',
-      description: 'APP adaptable, uso intuitivo, sin barreras.',
+      description: 'Pensado también para personas con necesidades específicas (respiratorias)',
       color: '#00C2C7',
       gradient: 'linear-gradient(135deg, #00C2C7, #4DD0E1)'
     },
     {
       icon: <CrownOutlined style={{ fontSize: 32, color: 'white' }} />,
-      title: 'Confianza',
-      description: 'Tranquilidad para usuarios y familiares.',
+      title: 'Responsabilidad',
+      description: 'Promueve el uso seguro de productos químicos y el control del aire interior.',
       color: '#1E88E5',
       gradient: 'linear-gradient(135deg, #1E88E5, #42A5F5)'
     },
@@ -276,7 +276,7 @@ const WhoWeAre = () => {
                       fontSize: '20px',
                       fontWeight: 'bold'
                     }}>•</span>
-                    Soluciones que empoderan
+                    Soluciones que acompañan
                   </li>
                   <li style={{ 
                     display: 'flex', 
@@ -296,7 +296,7 @@ const WhoWeAre = () => {
                       fontSize: '20px',
                       fontWeight: 'bold'
                     }}>•</span>
-                    Independencia y tranquilidad familiar
+                    Tranquilidad familiar
                   </li>
                 </ul>
               </div>
@@ -398,7 +398,7 @@ const WhoWeAre = () => {
                       fontSize: '20px',
                       fontWeight: 'bold'
                     }}>•</span>
-                    Innovación al servicio del cuidado
+                    Innovación con propósito
                   </li>
                   <li style={{ 
                     display: 'flex', 
@@ -438,7 +438,7 @@ const WhoWeAre = () => {
                       fontSize: '20px',
                       fontWeight: 'bold'
                     }}>•</span>
-                    Autonomía tecnológica
+                    Tecnología que cuida
                   </li>
                 </ul>
               </div>
@@ -643,7 +643,7 @@ const WhoWeAre = () => {
                     lineHeight: 1.1
                   }}
                 >
-                  "Valores que Transforman"
+                  Valores que Transforman
                 </Title>
                 <Paragraph 
                   style={{ 
@@ -656,9 +656,7 @@ const WhoWeAre = () => {
                     fontWeight: 500
                   }}
                 >
-                  Transformamos la innovación en compañía, brindando autonomía, seguridad y tranquilidad 
-                  a quienes más lo necesitan —y a quienes los rodean. Porque nuestro propósito es simple: 
-                  que la tecnología esté al servicio de las personas, y no al revés.
+                  Nuestra innovación nace del compromiso con el bienestar, la seguridad y la sostenibilidad. Por eso, desarrollamos tecnología empática, accesible y responsable, que interpreta el aire que respirás para transformar tu hogar en un espacio más saludable, seguro y humano.
                 </Paragraph>
               </div>
             </div>

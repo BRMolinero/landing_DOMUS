@@ -221,7 +221,7 @@ const Product = () => {
                       letterSpacing: '0.3px'
                     }}
                   >
-                    «Diseñado para moverse.<br/>Creado para acompañar»
+                    «Inteligencia natural para tu hogar»
                   </Paragraph>
                 </div>
                 
@@ -235,9 +235,7 @@ const Product = () => {
                     fontWeight: 500
                   }}
                 >
-                  Domüs es un robot que brinda asistencia, diseñado para mejorar la autonomía, 
-                  seguridad y calidad de vida de personas con movilidad y/o visión reducidas 
-                  y adultos mayores.
+                  Con Domüs interpretamos la calidad del aire en el hogar de manera contextual y comprensible. Transformamos la información técnica en bienestar cotidiano, ayudando a las personas a respirar mejor, prevenir riesgos y cuidar su salud sin esfuerzo.
                 </Paragraph>
               </div>
             </Col>
