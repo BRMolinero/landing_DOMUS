@@ -131,42 +131,54 @@ const Product = () => {
                 
                 {/* Logo de Domus */}
                 <div style={{
-                  marginTop: 20,
-                  marginBottom: 40,
+                  marginTop: 48,
+                  marginBottom: 48,
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center'
                 }}>
-                  <div style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%)',
-                    borderRadius: '20px',
-                    padding: '24px',
-                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(246, 150, 63, 0.2)',
-                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                    backdropFilter: 'blur(20px)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    maxWidth: '400px',
-                    width: '100%'
-                  }}>
-                    {/* Decoración de fondo */}
+                  <div 
+                    className="domus-logo-container"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%)',
+                      borderRadius: '24px',
+                      padding: '32px',
+                      boxShadow: '0 24px 64px rgba(0, 0, 0, 0.25), 0 12px 40px rgba(11, 60, 93, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
+                      border: '2px solid rgba(255, 255, 255, 0.4)',
+                      backdropFilter: 'blur(20px)',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      maxWidth: '420px',
+                      width: '100%',
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = '0 32px 80px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(11, 60, 93, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 24px 64px rgba(0, 0, 0, 0.25), 0 12px 40px rgba(11, 60, 93, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6)';
+                    }}
+                  >
+                    {/* Decoración de fondo más sutil */}
                     <div style={{
                       position: 'absolute',
-                      top: -20,
-                      right: -20,
-                      width: 100,
-                      height: 100,
-                      background: 'linear-gradient(135deg, rgba(246, 150, 63, 0.1), rgba(149, 205, 209, 0.1))',
+                      top: -30,
+                      right: -30,
+                      width: 120,
+                      height: 120,
+                      background: 'radial-gradient(circle, rgba(95, 205, 209, 0.08) 0%, transparent 70%)',
                       borderRadius: '50%',
                       zIndex: 0
                     }} />
                     <div style={{
                       position: 'absolute',
-                      bottom: -30,
-                      left: -30,
-                      width: 120,
-                      height: 120,
-                      background: 'linear-gradient(135deg, rgba(149, 205, 209, 0.1), rgba(217, 87, 102, 0.1))',
+                      bottom: -40,
+                      left: -40,
+                      width: 140,
+                      height: 140,
+                      background: 'radial-gradient(circle, rgba(246, 150, 63, 0.08) 0%, transparent 70%)',
                       borderRadius: '50%',
                       zIndex: 0
                     }} />
@@ -180,8 +192,8 @@ const Product = () => {
                           height: 'auto',
                           maxHeight: '200px',
                           objectFit: 'contain',
-                          filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2))',
-                          transition: 'transform 0.3s ease'
+                          filter: 'drop-shadow(0 12px 24px rgba(0, 0, 0, 0.15))',
+                          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                         }}
                         onMouseEnter={(e) => {
                           e.target.style.transform = 'scale(1.05)';
@@ -194,31 +206,54 @@ const Product = () => {
                   </div>
                 </div>
                 
-                <div style={{
-                  marginBottom: 32,
-                  padding: '24px',
-                  background: 'linear-gradient(180deg, #1a4a6b 0%, #0B3C5D 100%)',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  maxWidth: '400px',
-                  width: '100%',
-                  margin: '0 auto 32px',
-                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2)',
-                  position: 'relative',
-                  transform: 'translateY(-2px)',
-                  transition: 'all 0.3s ease'
-                }}>
+                <div 
+                  className="quote-box"
+                  style={{
+                    marginBottom: 40,
+                    padding: '28px 32px',
+                    background: 'linear-gradient(135deg, rgba(26, 74, 107, 0.95) 0%, rgba(11, 60, 93, 0.98) 100%)',
+                    borderRadius: '24px',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    maxWidth: '600px',
+                    width: '100%',
+                    margin: '0 auto 40px',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.35), 0 8px 32px rgba(11, 60, 93, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 24px 72px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(11, 60, 93, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.35), 0 8px 32px rgba(11, 60, 93, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+                  }}
+                >
+                  {/* Decoración sutil de fondo */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '2px',
+                    background: 'linear-gradient(90deg, transparent, rgba(149, 205, 209, 0.3), transparent)',
+                    zIndex: 1
+                  }} />
                   <Paragraph 
                     style={{ 
-                      fontSize: '1.6rem',
-                      lineHeight: 1.4,
+                      fontSize: '1.65rem',
+                      lineHeight: 1.5,
                       color: 'white',
                       margin: 0,
-                      fontWeight: 700,
+                      fontWeight: 600,
                       fontStyle: 'italic',
                       textAlign: 'center',
-                      textShadow: '0 2px 4px rgba(0, 0, 0, 0.4)',
-                      letterSpacing: '0.3px'
+                      textShadow: '0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2)',
+                      letterSpacing: '0.5px',
+                      position: 'relative',
+                      zIndex: 2
                     }}
                   >
                     «Inteligencia natural para tu hogar»
@@ -228,11 +263,14 @@ const Product = () => {
                 <Paragraph 
                   style={{ 
                     fontSize: '1.375rem',
-                    lineHeight: 1.8,
-                    color: 'rgba(255, 255, 255, 0.9)',
-                    maxWidth: 800,
+                    lineHeight: 1.85,
+                    color: 'rgba(255, 255, 255, 0.95)',
+                    maxWidth: '850px',
                     margin: '0 auto',
-                    fontWeight: 500
+                    fontWeight: 400,
+                    textAlign: 'center',
+                    letterSpacing: '0.2px',
+                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
                   }}
                 >
                   Con Domüs interpretamos la calidad del aire en el hogar de manera contextual y comprensible. Transformamos la información técnica en bienestar cotidiano, ayudando a las personas a respirar mejor, prevenir riesgos y cuidar su salud sin esfuerzo.
