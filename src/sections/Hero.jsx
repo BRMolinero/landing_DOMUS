@@ -86,13 +86,15 @@ const Hero = () => {
         opacity: 0.6
       }} />
       
-      <div style={{ 
-        maxWidth: 1200, 
-        margin: '0 auto', 
-        padding: '0 24px',
-        position: 'relative',
-        zIndex: 1
-      }}>
+      <div 
+        className="hero-main-container"
+        style={{
+          maxWidth: 1200, 
+          margin: '0 auto', 
+          padding: '0 24px',
+          position: 'relative',
+          zIndex: 1
+        }}>
         <Row gutter={[64, 64]} align="middle">
           <Col xs={24} lg={12}>
             <Space direction="vertical" size="large" style={{ width: '100%' }}>
@@ -132,6 +134,7 @@ const Hero = () => {
                 </Title>
                 
                 <Paragraph 
+                  className="hero-description-text"
                   style={{ 
                     color: 'rgba(255, 255, 255, 0.9)', 
                     fontSize: '1.375rem',
@@ -145,6 +148,7 @@ const Hero = () => {
                 </Paragraph>
                 
                 <Paragraph 
+                  className="hero-description-text"
                   style={{ 
                     color: 'rgba(255, 255, 255, 0.9)', 
                     fontSize: '1.375rem',
@@ -368,8 +372,17 @@ const Hero = () => {
       <style dangerouslySetInnerHTML={{
         __html: `
           @media (max-width: 768px) {
+            .hero-main-container {
+              padding: 0 32px !important;
+            }
+            
             .hero-card-section {
               display: none !important;
+            }
+            
+            .hero-description-text {
+              padding-left: 8px !important;
+              padding-right: 8px !important;
             }
             
             .hero-buttons-container {
