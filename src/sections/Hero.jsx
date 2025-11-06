@@ -95,15 +95,15 @@ const Hero = () => {
           position: 'relative',
           zIndex: 1
         }}>
-        <Row gutter={[64, 64]} align="middle">
-          <Col xs={24} lg={12}>
-            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Row gutter={[64, 64]} align="middle" justify="center">
+          <Col xs={24} className="hero-content-column">
+            <Space direction="vertical" size="large" style={{ width: '100%', maxWidth: 1200 }}>
               <div>
                 <Title 
                   level={1} 
                   style={{ 
                     color: 'white', 
-                    marginBottom: 32,
+                    marginBottom: 80,
                     fontSize: '4rem',
                     fontWeight: 800,
                     lineHeight: 1.1,
@@ -111,7 +111,8 @@ const Hero = () => {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    position: 'relative'
+                    position: 'relative',
+                    textAlign: 'center'
                   }}
                 >
                   humanix-tech:{' '}
@@ -125,7 +126,8 @@ const Hero = () => {
                   <div style={{
                     position: 'absolute',
                     bottom: '-12px',
-                    left: 0,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
                     width: '200px',
                     height: '6px',
                     background: 'linear-gradient(135deg, #0B3C5D, #00C2C7)',
@@ -139,9 +141,11 @@ const Hero = () => {
                     color: 'rgba(255, 255, 255, 0.9)', 
                     fontSize: '1.375rem',
                     lineHeight: 1.7,
-                    marginBottom: 20,
+                    marginBottom: 32,
                     fontWeight: 500,
-                    maxWidth: 600
+                    maxWidth: 600,
+                    margin: '0 auto 32px',
+                    textAlign: 'center'
                   }}
                 >
                   Creemos que la tecnología puede ser más que inteligente: puede ser humana.
@@ -153,9 +157,11 @@ const Hero = () => {
                     color: 'rgba(255, 255, 255, 0.9)', 
                     fontSize: '1.375rem',
                     lineHeight: 1.7,
-                    marginBottom: 40,
+                    marginBottom: 56,
                     fontWeight: 500,
-                    maxWidth: 600
+                    maxWidth: 600,
+                    margin: '0 auto 56px',
+                    textAlign: 'center'
                   }}
                 >
                   Creamos herramientas que acompañan, protegen y empoderan a las personas en su día a día.
@@ -165,8 +171,9 @@ const Hero = () => {
                 <div style={{ 
                   display: 'flex', 
                   gap: 16, 
-                  marginBottom: 40,
-                  flexWrap: 'wrap'
+                  marginBottom: 56,
+                  flexWrap: 'wrap',
+                  justifyContent: 'center'
                 }}>
                   {features.map((feature, index) => (
                     <div key={index} style={{
@@ -195,7 +202,8 @@ const Hero = () => {
               <div className="hero-buttons-container" style={{
                 display: 'flex',
                 flexDirection: 'row',
-                gap: 16
+                gap: 16,
+                justifyContent: 'center'
               }}>
                 <Button
                   type="primary"
@@ -264,108 +272,6 @@ const Hero = () => {
               </div>
             </Space>
           </Col>
-
-          <Col xs={24} lg={12} className="hero-card-section">
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-              <div style={{
-                width: '100%',
-                maxWidth: 500,
-                height: 500,
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: 24,
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(20px)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.2)'
-              }}>
-                {/* Decoraciones internas */}
-                <div style={{
-                  position: 'absolute',
-                  top: -50,
-                  right: -50,
-                  width: 150,
-                  height: 150,
-                  background: 'radial-gradient(circle, rgba(0, 194, 199, 0.2) 0%, transparent 70%)',
-                  borderRadius: '50%',
-                  zIndex: 0
-                }} />
-                <div style={{
-                  position: 'absolute',
-                  bottom: -30,
-                  left: -30,
-                  width: 100,
-                  height: 100,
-                  background: 'radial-gradient(circle, rgba(246, 150, 63, 0.2) 0%, transparent 70%)',
-                  borderRadius: '50%',
-                  zIndex: 0
-                }} />
-
-                {/* Contenido principal */}
-                <div style={{
-                  width: '85%',
-                  height: '85%',
-                  background: 'linear-gradient(135deg, rgba(149, 205, 209, 0.2), rgba(39, 65, 129, 0.2))',
-                  borderRadius: 20,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  position: 'relative',
-                  zIndex: 1,
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}>
-                  <div style={{
-                    width: 80,
-                    height: 80,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #00C2C7, #0B3C5D)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: 24,
-                    boxShadow: '0 8px 24px rgba(0, 194, 199, 0.3)'
-                  }}>
-                    <RocketOutlined style={{ fontSize: 36, color: 'white' }} />
-                  </div>
-                  
-                  <Title 
-                    level={3} 
-                    style={{ 
-                      color: 'white',
-                      marginBottom: 16,
-                      fontSize: '1.5rem',
-                      fontWeight: 600,
-                      textAlign: 'center'
-                    }}
-                  >
-                    Domüs
-                  </Title>
-                  
-                  <Paragraph 
-                    style={{ 
-                      color: 'rgba(255, 255, 255, 0.8)',
-                      fontSize: '16px',
-                      textAlign: 'center',
-                      marginBottom: 0,
-                      fontWeight: 500,
-                      lineHeight: 1.5
-                    }}
-                  >
-                    Inteligencia natural para tu hogar
-                  </Paragraph>
-                </div>
-              </div>
-            </div>
-          </Col>
         </Row>
       </div>
       
@@ -374,6 +280,12 @@ const Hero = () => {
           @media (max-width: 768px) {
             .hero-main-container {
               padding: 0 32px !important;
+            }
+            
+            .hero-content-column {
+              display: flex !important;
+              justify-content: center !important;
+              text-align: center !important;
             }
             
             .hero-card-section {
